@@ -9,7 +9,7 @@ import java.util.List;
 @Component
 public class EmployeeValidator {
     private static final List<String> employmentType = List.of(
-            "Permanent", "Fixed", "Part"
+            "Permanent", "Fixed term", "Part"
     );
     private static final List<String> employeeType = List.of(
             "Employee", "Consult", "Leased"
