@@ -31,10 +31,6 @@ public class Employee {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -73,5 +69,16 @@ public class Employee {
 
     public void setEmployeeType(String employeeType) {
         this.employeeType = employeeType;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee\n" +
+                "id: " + id + "\n" +
+                "employee name: " + name + "\n" +
+                "monthly salary: " + monthlySalary + "\n" +
+                "employment type: " + employmentType + "\n" +
+                "employment percentage: " + employmentPercentage + "\n" +
+                "employee type: " + employeeType;
     }
 }
