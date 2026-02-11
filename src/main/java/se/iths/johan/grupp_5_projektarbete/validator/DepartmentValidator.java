@@ -21,10 +21,16 @@ public class DepartmentValidator {
                     "5-digit number between " + min + " and " + max + ".");
         }
     }
-    
+
     public void validateLocation(String location) {
-        if(location == null || location.isBlank()) {
+        if (location == null || location.isBlank()) {
             throw new DepartmentValidationException("Location cannot be null or empty");
+        }
+    }
+
+    public void validateNumberOfEmployees(int numberOfEmployees) {
+        if (numberOfEmployees < 0) {
+            throw new DepartmentValidationException("Number of employees cannot be negative");
         }
     }
 }
