@@ -14,9 +14,12 @@ public class Department {
     @Column(name = "cost_center", nullable = false, unique = true)
     private int costCenter;
     private String location;
+    @Column(name = "number_of_employees", nullable = false)
+    private int numberOfEmployees;
 
     public Department() {
     }
+
 
     public Long getId() {
         return id;
@@ -46,6 +49,13 @@ public class Department {
         this.location = location;
     }
 
+    public int getNumberOfEmployees() {
+        return numberOfEmployees;
+    }
+
+    public void setNumberOfEmployees(int numberOfEmployees) {
+        this.numberOfEmployees = numberOfEmployees;
+    }
 
     @Override
     public String toString() {
@@ -54,6 +64,7 @@ public class Department {
                 ", departmentName='" + departmentName + '\'' +
                 ", costCenter=" + costCenter +
                 ", location='" + location + '\'' +
+                ", numberOfEmployees=" + numberOfEmployees +
                 '}';
     }
 }
