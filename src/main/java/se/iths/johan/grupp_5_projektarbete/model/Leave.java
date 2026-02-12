@@ -12,9 +12,16 @@ public class Leave {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "employee_name", nullable = false)
     private String employeeName;
+
+    @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
+
+    @Column(name = "end_date")
     private LocalDate endDate;
+
+    @Column(name = "approved", nullable = false)
     private boolean approved;
 
     public Leave() {
