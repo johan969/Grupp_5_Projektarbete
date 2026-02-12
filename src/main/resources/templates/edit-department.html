@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uppdatera avdelning</title>
+</head>
+<body>
+<h1>Uppdatera avdelning</h1>
+
+<form method="post" th:action="@{/departments/{id}(id=${department.id})}" th:object="${department}">
+    <input type="hidden" name="_method" value="PUT">
+    <p>
+        <label>Avdelningsnamn:</label>
+        <input type="text" th:field="*{departmentName}">
+
+    </p>
+
+    <p>
+        <label>Kostnadsställe:</label>
+        <input type="number" th:field="*{costCenter}">
+
+    </p>
+
+    <p>
+        <label>Plats:</label>
+        <input type="text" th:field="*{location}">
+
+    </p>
+
+    <p>
+        <label>Antal anställda:</label>
+        <input type="number" th:field="*{numberOfEmployees}">
+
+    </p>
+
+    <button type="submit">Uppdatera avdelning</button>
+
+</form>
+
+</body>
+</html>

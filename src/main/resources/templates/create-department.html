@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skapa ny avdelning</title>
+</head>
+<body>
+<h1>Skapa ny avdelning</h1>
+<form method="post" th:action="@{/departments}" th:object="${department}">
+
+    <p>
+        <label>Avdelningsnamn:</label>
+        <input type="text" th:field="*{departmentName}">
+
+    </p>
+
+    <p>
+        <label>Kostnadsställe:</label>
+        <input type="number" th:field="*{costCenter}">
+
+    </p>
+
+    <p>
+        <label>Plats:</label>
+        <input type="text" th:field="*{location}">
+
+    </p>
+
+    <p>
+        <label>Antal anställda:</label>
+        <input type="number" th:field="*{numberOfEmployees}">
+
+    </p>
+
+    <button type="submit">Spara avdelning</button>
+</form>
+</body>
+</html>

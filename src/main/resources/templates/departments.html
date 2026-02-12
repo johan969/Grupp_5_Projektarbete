@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Här är alla avdelningar</title>
+</head>
+<body>
+<h1>Alla avdelningar</h1>
+
+<ul>
+    <li th:each="department : ${departments}">
+        <!-- härinne loopas listan -->
+
+        <span th:text="${department.departmentName}"></span>
+        <a th:href="@{/departments/{id}(id=${department.id})}">Visa info</a>
+        <span> - </span>
+        <a th:href="@{/departments/new}">Skapa ny avdelning</a>
+        <a th:href="@{/departments/{id}/edit(id=${department.id})}">Uppdatera avdelning</a>
+
+
+        <form th:action="@{/departments/{id}(id=${department.id})}" method="post" style="display:inline;">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit">Ta bort</button>
+        </form>
+
+    </li>
+
+</ul>
+
+</body>
+</html>
