@@ -27,7 +27,7 @@ public class EmployeeService {
     //get one
     public Employee getEmployeeById(Long id) {
         return employeeRepository.findById(id).
-                orElseThrow(() -> new EmployeeNotFoundException(id));
+                orElseThrow(() -> new EmployeeNotFoundException("Employee with id " + id + " not found"));
     }
 
     //create, validerar så att entiteten inte bryter mot några regler innan create
@@ -43,7 +43,7 @@ public class EmployeeService {
     //update
     public Employee updateEmployee(Long id, Employee updatedEmployee) {
         Employee current = employeeRepository.findById(id).
-                orElseThrow(() -> new EmployeeNotFoundException(id));
+                orElseThrow(() -> new EmployeeNotFoundException("Employee with id " + id + " not found and can therefore not be updated"));
         //validering av update innan infon lagras över till current
         employeeValidator.validateEmployee(updatedEmployee.getName());
         employeeValidator.validateSalary(updatedEmployee.getMonthlySalary());
@@ -64,7 +64,7 @@ public class EmployeeService {
     //delete, letar efter employee med värdeparam, hittas ej så kastas annars delete
     public void deleteEmployee(Long id) {
         Employee current = employeeRepository.findById(id).
-                orElseThrow(() -> new EmployeeNotFoundException(id));
+                orElseThrow(() -> new EmployeeNotFoundException("Employee with id " + id + " not found and can therefore not be deleted"));
         employeeRepository.delete(current);
     }
 }
