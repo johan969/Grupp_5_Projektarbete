@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Visa information om avdelning</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Information om avdelningen</h1>
+
+<table>
+    <tr>
+        <th>Avdelning</th>
+        <th>Kostnadsställe</th>
+        <th>Plats</th>
+        <th>Antal anställda</th>
+    </tr>
+    <tr>
+        <td th:text="${department.departmentName}"></td>
+        <td th:text="${department.costCenter}"></td>
+        <td th:text="${department.location}"></td>
+        <td th:text="${department.numberOfEmployees}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
