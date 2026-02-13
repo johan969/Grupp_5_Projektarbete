@@ -24,7 +24,7 @@ public class LeaveService {
     // GET (en)
     public Leave getById(Long id) {
         return leaveRepository.findById(id)
-                .orElseThrow(() -> new LeaveNotFoundException(id));
+                .orElseThrow(() -> new LeaveNotFoundException("Leave with id " + id + " was not found"));
     }
 
     // POST (skapa)
@@ -35,7 +35,7 @@ public class LeaveService {
     // PUT (uppdatera)
     public Leave update(Long id, Leave updated) {
         Leave existing = leaveRepository.findById(id)
-                .orElseThrow(() -> new LeaveNotFoundException(id));
+                .orElseThrow(() -> new LeaveNotFoundException("Leave with id " + id + " was not found"));
 
         existing.setEmployeeName(updated.getEmployeeName());
         existing.setStartDate(updated.getStartDate());
@@ -48,7 +48,7 @@ public class LeaveService {
     // DELETE (ta bort)
     public void delete(Long id) {
         Leave existing = leaveRepository.findById(id)
-                .orElseThrow(() -> new LeaveNotFoundException(id));
+                .orElseThrow(() -> new LeaveNotFoundException("Leave with id " + id + " was not found"));
 
         leaveRepository.delete(existing);
     }
