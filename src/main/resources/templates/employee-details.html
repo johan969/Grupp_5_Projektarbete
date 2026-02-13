@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Anställd</title>
+</head>
+<body>
+<h1>Detaljer för anställd</h1>
+
+<p><strong>Namn:</strong><span th:text="${employee.name}"></span></p>
+<p><strong>Typ av anställd:</strong><span th:text="${employee.employeeType}"></span></p>
+<p><strong>Anställningsform:</strong><span th:text="${employee.employmentType}"></span></p>
+<p><strong>Kapacitet i %:</strong><span th:text="${employee.employmentPercentage}"></span></p>
+<p><strong>Lön:</strong><span th:text="${employee.monthlySalary}"></span></p>
+
+<a th:href="@{/employees}">Tillbaka till listan</a>
+<a th:href="@{/employees/{id}/edit(id=${employee.id})}">Uppdatera info</a>
+</body>
+</html>

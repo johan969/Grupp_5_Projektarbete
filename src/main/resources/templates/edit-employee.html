@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uppdatera anställd</title>
+</head>
+<body>
+<h1>Uppdatera anställd</h1>
+
+<form th:action="@{/employee/{id}/update(id=${employee.id})}" th:object="${employee}" method="post">
+    <input type="hidden" name="_method" value="PUT"/>
+    <p>
+        <label>Namn:</label>
+        <input type="text" th:field="*{name}"/>
+    </p>
+    <p>
+        <label>Typ av anställd:</label>
+        <input type="text" th:field="*{employeeType}"/>
+    </p>
+    <p>
+        <label>Anställningsform:</label>
+        <input type="text" th:field="*{employmentType}"/>
+    </p>
+    <p>
+        <label>Kapacitet i %:</label>
+        <input type="text" th:field="*{employmentPercentage}"/>
+    </p>
+    <p>
+        <label>Lön:</label>
+        <input type="text" th:field="*{monthlySalary}"/>
+    </p>
+    <p>
+        <button type="submit">Uppdatera</button>
+    </p>
+</form>
+
+<p>
+    <a th:href="@{/employees}">Tillbaka</a>
+</p>
+
+</body>
+</html>

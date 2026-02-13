@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista för våra anställda</title>
+</head>
+<body>
+<h1>Våra Anställda</h1>
+
+<p>
+    <a th:href="@{/employees/newEmployee}">Lägg till en ny anställd</a>
+</p>
+
+<table border="1">
+    <tr>
+        <th>Namn</th>
+        <th>Typ av anställd</th>
+        <th>Anställningsform</th>
+        <th>Kapacitet i %</th>
+        <th>Lön</th>
+        <th>Åtgärder</th>
+    </tr>
+
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.employeeType}"></td>
+        <td th:text="${employee.employmentType}"></td>
+        <td th:text="${employee.employmentPercentage}"></td>
+        <td th:text="${employee.monthlySalary}"></td>
+        <td>
+            <a th:href="@{/employees/{id}(id=${employee.id})}">Visa en anställd</a>
+            <a th:href="@{/employees/{id}/edit(id=${employee.id})}">Uppdatera en anställd</a>
+            <form th:action="@{/employees/{id}(id=${employee.id})}" method="post" style="">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">Radera</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

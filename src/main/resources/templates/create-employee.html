@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lägg till en anställd</title>
+</head>
+<body>
+<h1>Lägg till en anställd</h1>
+<form th:action="@{/employees}" th:object="${employee}" method="post">
+    <p>
+        <label>Namn:</label>
+        <input type="text" th:field="*{name}" required/>
+    </p>
+    <p>
+        <label>Typ av anställd:</label>
+        <input type="text" th:field="*{employeeType}" required/>
+    </p>
+
+    <p>
+        <label>Anställningsform:</label>
+        <input type="text" th:field="*{employmentType}" required/>
+    </p>
+
+    <p>
+        <label>Kapacitet i %:</label>
+        <input type="text" th:field="*{employmentPercentage}" required/>
+    </p>
+
+    <p>
+        <label>Lön:</label>
+        <input type="text" th:field="*{monthlySalary}" required/>
+    </p>
+    <p>
+        <button type="submit">Spara</button>
+    </p>
+</form>
+<p>
+    <a th:href="@{/employees}">Tillbaka</a>
+</p>
+
+</body>
+</html>
