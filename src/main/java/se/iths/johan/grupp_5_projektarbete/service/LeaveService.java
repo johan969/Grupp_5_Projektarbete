@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import se.iths.johan.grupp_5_projektarbete.exception.LeaveNotFoundException;
 import se.iths.johan.grupp_5_projektarbete.model.Leave;
 import se.iths.johan.grupp_5_projektarbete.repository.LeaveRepository;
-import se.iths.johan.grupp_5_projektarbete.validator.LeaveValidator;
 
 import java.util.List;
 
@@ -12,11 +11,9 @@ import java.util.List;
 public class LeaveService {
 
     private final LeaveRepository leaveRepository;
-    private final LeaveValidator leaveValidator;
 
-    public LeaveService(LeaveRepository leaveRepository, LeaveValidator leaveValidator) {
+    public LeaveService(LeaveRepository leaveRepository) {
         this.leaveRepository = leaveRepository;
-        this.leaveValidator = leaveValidator;
     }
 
     // GET (alla)
@@ -32,7 +29,6 @@ public class LeaveService {
 
     // POST (skapa)
     public Leave create(Leave leave) {
-        validate(leave);
         return leaveRepository.save(leave);
     }
 
@@ -40,8 +36,6 @@ public class LeaveService {
     public Leave update(Long id, Leave updated) {
         Leave existing = leaveRepository.findById(id)
                 .orElseThrow(() -> new LeaveNotFoundException(id));
-
-        validate(updated);
 
         existing.setEmployeeName(updated.getEmployeeName());
         existing.setStartDate(updated.getStartDate());
@@ -57,12 +51,5 @@ public class LeaveService {
                 .orElseThrow(() -> new LeaveNotFoundException(id));
 
         leaveRepository.delete(existing);
-    }
-
-    private void validate(Leave leave) {
-        leaveValidator.validateEmployeeName(leave.getEmployeeName());
-        leaveValidator.validateStartDate(leave.getStartDate());
-        leaveValidator.validateEndDate(leave.getStartDate(), leave.getEndDate());
-        leaveValidator.validateApproved(leave.isApproved());
     }
 }
