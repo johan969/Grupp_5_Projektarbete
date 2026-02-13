@@ -10,20 +10,21 @@ public class Employee {
     @Column(name = "employee_id")
     private Long id;
 
-    @Column(name = "employee", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "salary", nullable = false)
+    @Column(name = "monthly_salary", nullable = false)
     private int monthlySalary;
 
     @Column(name = "employment_type", nullable = false)
     private String employmentType;
 
-    @Column(name = "percentage", nullable = false)
+    @Column(name = "employment_percentage", nullable = false)
     private int employmentPercentage;
 
     @Column(name = "employee_type", nullable = false)
     private String employeeType;
+    //uppdaterat namn för att korrigera mappning
 
     public Employee() {
     }
