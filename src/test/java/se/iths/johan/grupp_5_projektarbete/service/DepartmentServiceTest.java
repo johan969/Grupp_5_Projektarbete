@@ -129,6 +129,11 @@ class DepartmentServiceTest {
         assertEquals("Finance", result.getDepartmentName());
         assertEquals(67890, result.getCostCenter());
 
+        verify(departmentValidator).validateDepartmentName("Finance");
+        verify(departmentValidator).validateCostCenter(67890);
+        verify(departmentValidator).validateLocation("Malmö");
+        verify(departmentValidator).validateNumberOfEmployees(20);
+
         // kontrollerar att save anropats 1 gång
         verify(departmentRepository, Mockito.times(1)).save(department);
     }
