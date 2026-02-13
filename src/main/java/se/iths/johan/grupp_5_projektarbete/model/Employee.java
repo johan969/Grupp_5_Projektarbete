@@ -24,6 +24,7 @@ public class Employee {
 
     @Column(name = "employee_type", nullable = false)
     private String employeeType;
+    //uppdaterat namn för att korrigera mappning
 
     public Employee() {
     }
