@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alla roller</title>
+</head>
+<body>
+<h1>Alla roller</h1>
+
+<ul>
+    <li th:each="role : ${roles}">
+        <span th:text="${role.title}"></span>
+        <a th:href="@{/roles/{id}(id=${role.id})}">Visa info om rollen</a>
+        <span> - </span>
+        <a th:href="@{/roles/{id}/edit(id=${role.id})}">Uppdatera roll</a>
+    </li>
+</ul>
+
+<a th:href="@{/roles/new}">Skapa ny roll</a>
+
+
+</body>
+</html>
