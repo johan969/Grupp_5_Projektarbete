@@ -7,7 +7,7 @@
 <body>
 <h1>Uppdatera anställd</h1>
 
-<form th:action="@{/employee/{id}/update(id=${employee.id})}" th:object="${employee}" method="post">
+<form th:action="@{/employees/{id}/update(id=${employee.id})}" th:object="${employee}" method="post">
     <input type="hidden" name="_method" value="PUT"/>
     <p>
         <label>Namn:</label>
