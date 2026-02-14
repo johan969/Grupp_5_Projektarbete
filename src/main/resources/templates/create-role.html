@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skapa ny roll</title>
+</head>
+<body>
+
+<h1>Skapa ny roll</h1>
+<form method="post" th:action="@{/roles}">
+    <p>
+        <label>title:</label>
+        <input type="text" name="title">
+    </p>
+
+    <p>
+        <label>level:</label>
+        <input type="text" name="level">
+    </p>
+
+
+    <p>
+        <label>description:</label>
+        <input type="text" name="description">
+    </p>
+
+    <p>
+        <label>Manager: </label>
+        <input type="checkbox" name="manager"/>
+    </p>
+
+
+    <p>
+        <button type="submit">Create Role</button>
+    </p>
+</form>
+
+</body>
+</html>

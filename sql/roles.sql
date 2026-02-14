@@ -1,4 +1,4 @@
-CREATE TABLE role
+CREATE TABLE roles
 (
 
     id          SERIAL PRIMARY KEY,
