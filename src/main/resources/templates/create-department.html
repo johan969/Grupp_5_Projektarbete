@@ -10,25 +10,25 @@
 
     <p>
         <label>Avdelningsnamn:</label>
-        <input type="text" th:field="*{departmentName}">
+        <input type="text" th:field="*{departmentName}" required>
 
     </p>
 
     <p>
         <label>Kostnadsställe:</label>
-        <input type="number" th:field="*{costCenter}">
+        <input type="number" th:field="*{costCenter}" min="10000" max="99999" required>
 
     </p>
 
     <p>
         <label>Plats:</label>
-        <input type="text" th:field="*{location}">
+        <input type="text" th:field="*{location}" required>
 
     </p>
 
     <p>
         <label>Antal anställda:</label>
-        <input type="number" th:field="*{numberOfEmployees}">
+        <input type="number" th:field="*{numberOfEmployees}" min="0" required>
 
     </p>
 
