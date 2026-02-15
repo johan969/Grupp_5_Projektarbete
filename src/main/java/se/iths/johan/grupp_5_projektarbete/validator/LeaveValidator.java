@@ -9,8 +9,8 @@ import java.time.LocalDate;
 public class LeaveValidator {
 
     public void validateEmployeeName(String employeeName) {
-        if (employeeName == null || employeeName.trim().isEmpty()) {
-            throw new LeaveValidationException("employeeName must not be empty");
+        if (employeeName == null || employeeName.isBlank()) {
+            throw new LeaveValidationException("employeeName must not be blank");
         }
     }
 
@@ -25,8 +25,5 @@ public class LeaveValidator {
             throw new LeaveValidationException("endDate must be after startDate");
         }
     }
-
-    public void validateApproved(boolean approved) {
-        // boolean är alltid true/false
-    }
+    
 }
