@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uppdatera roll</title>
+</head>
+<body>
+<h1>Uppdatera roll</h1>
+
+<form method="post" th:action="@{/roles/{id}/edit(id=${role.id})}">
+
+    <input type="hidden" name="_method" value="PUT">
+    <p>
+        <label>Titel:</label>
+        <input type="text" name="title"
+               th:value="${role.title}">
+
+    </p>
+
+    <p>
+        <label>Level:</label>
+        <input type="text" name="level"
+               th:value="${role.level}">
+
+    </p>
+    <p>
+        <label>Beskrivning:</label>
+        <input type="text" name="description"
+               th:value="${role.description}">
+
+    </p>
+
+    <p>
+        <label>Manager: </label>
+        <input type="checkbox" name="manager"/>
+    </p>
+
+    <button type="submit">Uppdatera roll</button>
+
+
+</form>
+
+</body>
+</html>
