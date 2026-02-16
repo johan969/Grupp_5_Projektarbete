@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import se.iths.johan.grupp_5_projektarbete.exception.DepartmentNotFoundException;
+import se.iths.johan.grupp_5_projektarbete.exception.DepartmentValidationException;
 import se.iths.johan.grupp_5_projektarbete.model.Department;
 import se.iths.johan.grupp_5_projektarbete.repository.DepartmentRepository;
 import se.iths.johan.grupp_5_projektarbete.validator.DepartmentValidator;
@@ -18,8 +19,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class DepartmentServiceTest {
@@ -190,4 +190,30 @@ class DepartmentServiceTest {
         // act och assert
         assertThrows(DepartmentNotFoundException.class, () -> departmentService.deleteDepartment(1L));
     }
+
+
+    @Test
+    @DisplayName("Ska testa att korrekt exception i service kastas när validation-exception kastas")
+    void testCreateWhenValidationExceptionThrows() {
+        doThrow(new DepartmentValidationException("Cannot create department"))
+                .when(departmentValidator).validateDepartmentName(department.getDepartmentName());
+
+        assertThrows(DepartmentValidationException.class,
+                () -> departmentService.createDepartment(department));
+    }
+
+    @Test
+    @DisplayName("Ska testa att korrekt exception kastas när validation-exception kastas")
+    void testUpdateWhenValidationExceptionTHrows() {
+        when(departmentRepository.findById(1L))
+                .thenReturn(Optional.of(department));
+
+        doThrow(new DepartmentValidationException("Cannot update department"))
+                .when(departmentValidator).validateDepartmentName(department.getDepartmentName());
+
+        assertThrows(DepartmentValidationException.class,
+                () -> departmentService.updateDepartment(1L, department));
+    }
+
+
 }
