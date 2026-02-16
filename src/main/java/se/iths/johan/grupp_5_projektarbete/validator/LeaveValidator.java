@@ -8,11 +8,16 @@ import java.time.LocalDate;
 @Component
 public class LeaveValidator {
 
-    public void validateEmployeeName(String employeeName) {
-        if (employeeName == null || employeeName.isBlank()) {
-            throw new LeaveValidationException("employeeName must not be blank");
-        }
+   public void validateEmployeeName(String employeeName) {
+    if (employeeName == null || employeeName.isBlank()) {
+        throw new LeaveValidationException("employeeName must not be blank");
     }
+
+    if (employeeName.length() > 255) {
+        throw new LeaveValidationException("employeeName must not be longer than 255 characters");
+    }
+}
+
 
     public void validateStartDate(LocalDate startDate) {
         if (startDate == null) {
