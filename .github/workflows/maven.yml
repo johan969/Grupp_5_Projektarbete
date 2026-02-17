@@ -37,5 +37,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: kattis82/Grupp_5_Projektarbete:1.0.0
+          tags: kattis82/grupp_5_projektarbete:1.0.0
 
