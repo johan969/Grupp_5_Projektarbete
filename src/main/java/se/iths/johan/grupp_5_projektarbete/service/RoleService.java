@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import se.iths.johan.grupp_5_projektarbete.exception.RoleNotFoundException;
 import se.iths.johan.grupp_5_projektarbete.model.Role;
 import se.iths.johan.grupp_5_projektarbete.repository.RoleRepository;
+import se.iths.johan.grupp_5_projektarbete.validator.RoleValidator;
 
 import java.util.List;
 
@@ -11,9 +12,11 @@ import java.util.List;
 public class RoleService {
 
     private final RoleRepository roleRepository;
+    private final RoleValidator roleValidator;
 
-    public RoleService(RoleRepository roleRepository) {
+    public RoleService(RoleRepository roleRepository, RoleValidator roleValidator) {
         this.roleRepository = roleRepository;
+        this.roleValidator = roleValidator;
     }
 
     public List<Role> findAll() {
@@ -26,7 +29,9 @@ public class RoleService {
     }
 
     public Role save(Role role) {
+        roleValidator.validate(role);
         return roleRepository.save(role);
+
     }
 
     public void delete(Long id) {
@@ -41,6 +46,8 @@ public class RoleService {
         roleToUpdate.setLevel(role.getLevel());
         roleToUpdate.setDescription(role.getDescription());
         roleToUpdate.setManager(role.isManager());
+
+        roleValidator.validate(role);
 
         return roleRepository.save(roleToUpdate);
 
