@@ -60,4 +60,10 @@ public class RoleController {
         return "redirect:/roles";
     }
 
+    @DeleteMapping("/{id}")
+    public String deleteRole(@PathVariable Long id) {
+        roleService.delete(id);
+        return "redirect:/roles";
+    }
+
 }
