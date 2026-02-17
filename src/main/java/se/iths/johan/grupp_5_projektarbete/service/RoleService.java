@@ -34,7 +34,7 @@ public class RoleService {
         roleRepository.delete(roleToDelete);
     }
 
-    public void updateRole(Long id, Role role) {
+    public Role updateRole(Long id, Role role) {
         Role roleToUpdate = roleRepository.findById(id).orElseThrow(() -> new RoleNotFoundException("Role not found for id:" + id));
 
         roleToUpdate.setTitle(role.getTitle());
@@ -42,7 +42,7 @@ public class RoleService {
         roleToUpdate.setDescription(role.getDescription());
         roleToUpdate.setManager(role.isManager());
 
-        roleRepository.save(roleToUpdate);
+        return roleRepository.save(roleToUpdate);
 
     }
 
