@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import se.iths.johan.grupp_5_projektarbete.exception.RoleNotFoundException;
 import se.iths.johan.grupp_5_projektarbete.model.Role;
 import se.iths.johan.grupp_5_projektarbete.repository.RoleRepository;
+import se.iths.johan.grupp_5_projektarbete.validator.RoleValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,8 @@ public class RoleServiceTest {
 
     @Mock
     RoleRepository roleRepository;
+    @Mock
+    RoleValidator roleValidator;
 
     @InjectMocks
     RoleService roleService;
