@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Create Leave</title>
+</head>
+<body>
+
+<h1>Create Leave</h1>
+
+<form th:action="@{/leaves}" th:object="${leave}" method="post">
+    <div>
+        <label for="employeeName">Employee</label><br/>
+        <input id="employeeName" type="text" th:field="*{employeeName}" required/>
+    </div>
+
+    <div>
+        <label for="startDate">Start date</label><br/>
+        <input id="startDate" type="date" th:field="*{startDate}" required/>
+    </div>
+
+    <div>
+        <label for="endDate">End date</label><br/>
+        <input id="endDate" type="date" th:field="*{endDate}" required/>
+    </div>
+
+    <div>
+        <label for="approved">Approved</label><br/>
+        <input id="approved" type="checkbox" th:field="*{approved}"/>
+    </div>
+
+    <div style="margin-top:12px;">
+        <button type="submit">Save</button>
+        <a th:href="@{/leaves}">Cancel</a>
+    </div>
+</form>
+
+</body>
+</html>
