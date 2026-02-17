@@ -47,7 +47,7 @@ public class RoleService {
         roleToUpdate.setDescription(role.getDescription());
         roleToUpdate.setManager(role.isManager());
 
-        roleValidator.validate(role);
+        roleValidator.validate(roleToUpdate);
 
         return roleRepository.save(roleToUpdate);
 
