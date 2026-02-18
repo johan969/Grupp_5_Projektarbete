@@ -37,5 +37,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: johan969/grupp_5_projektarbete:dev
+          tags: johan969/grupp_5_projektarbete:2.0.0
 
