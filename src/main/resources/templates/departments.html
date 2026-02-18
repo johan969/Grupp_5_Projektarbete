@@ -8,6 +8,7 @@
 <h1>Alla avdelningar</h1>
 
 <p><a th:href="@{/}">Tillbaka till startsidan</a></p>
+<p><a th:href="@{/departments/new}">Skapa ny avdelning</a></p>
 
 <ul>
     <li th:each="department : ${departments}">
@@ -16,7 +17,7 @@
         <span th:text="${department.departmentName}"></span>
         <a th:href="@{/departments/{id}(id=${department.id})}">Visa info</a>
         <span> - </span>
-        <a th:href="@{/departments/new}">Skapa ny avdelning</a>
+
         <a th:href="@{/departments/{id}/edit(id=${department.id})}">Uppdatera avdelning</a>
 
 
