@@ -7,6 +7,8 @@
 <body>
 <h1>Alla roller</h1>
 
+<p><a th:href="@{/}">Tillbaka till startsidan</a></p>
+
 <ul>
     <li th:each="role : ${roles}">
         <span th:text="${role.title}"></span>
