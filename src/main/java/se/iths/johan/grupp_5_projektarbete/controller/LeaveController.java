@@ -19,7 +19,7 @@ public class LeaveController {
     @GetMapping
     public String getAllLeaves(Model model) {
         model.addAttribute("leaves", leaveService.getAll());
-        return "leave-list"; // eller "leaves" beroende på din html-fil
+        return "leaves"; // eller "leaves" beroende på din html-fil
     }
 
     @GetMapping("/new")
@@ -52,8 +52,8 @@ public class LeaveController {
         leaveService.update(id, leave);
         return "redirect:/leaves";
     }
-    
-    @PostMapping("/{id}/delete")
+
+    @PostMapping("/{id}")
     public String deleteLeave(@PathVariable Long id) {
         leaveService.delete(id);
         return "redirect:/leaves";

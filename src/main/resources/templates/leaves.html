@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visa all frånvaro</title>
+</head>
+<body>
+<h1>All frånvaro</h1>
+
+<p><a th:href="@{/}">Tillbaka till startsidan</a></p>
+<a th:href="@{/leaves/new}">Skapa ny frånvaro</a>
+
+<ul>
+    <li th:each="leave : ${leaves}">
+        <!-- härinne loopas listan -->
+
+        <span th:text="${leave.employeeName}"></span>
+        <a th:href="@{/leaves/{id}(id=${leave.id})}">Visa info</a>
+        <span> - </span>
+
+        <a th:href="@{/leaves/{id}/edit(id=${leave.id})}">Uppdatera frånvaro</a>
+
+
+        <form th:action="@{/leaves/{id}(id=${leave.id})}" method="post" style="display:inline;">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit">Ta bort</button>
+        </form>
+
+    </li>
+
+</ul>
+
+</body>
