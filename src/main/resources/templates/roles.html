@@ -15,6 +15,13 @@
         <a th:href="@{/roles/{id}(id=${role.id})}">Visa info om rollen</a>
         <span> - </span>
         <a th:href="@{/roles/{id}/edit(id=${role.id})}">Uppdatera roll</a>
+
+        <form th:action="@{/roles/{id}(id=${role.id})}" method="post" style="display:inline;">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit">Ta bort</button>
+        </form>
+
+
     </li>
 </ul>
 
